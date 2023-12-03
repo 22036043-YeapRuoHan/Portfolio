@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Confirmation</title>
+</head>
+
+<body>
+    <div class="container m-3">
+        <h3>Thank You</h3>
+        <br />
+        <div class="row d-flex">
+            <label class="col-2">Name:</label>
+            <div class=col-3>@ViewData["name"]</div>
+        </div>
+        <div class="row">
+            <label class="col-2">Email:</label>
+            <div class=col-3>@ViewData["email"]</div>
+        </div>
+        <div class="row">
+            <label class="col-2">Gender:</label>
+            <div class=col-3>@ViewData["gender"]</div>
+        </div>
+        <div class="row">
+            <label class="col-2">Interest:</label>
+            <div class=col-3>@ViewData["interest"]</div>
+        </div>
+        <div class="row">
+            <label class="col-2">Referral:</label>
+            <div class=col-3>@ViewData["refer"]</div>
+        </div>
+        <div class="row">
+            <label class="col-2">Comments:</label>
+            <div class="col-3">@ViewData["comments"]</div>
+        </div>
+        <br />
+        <div class="row">
+            <a href="~/Organic/Index">Back to Main</a>
+        </div>
+    </div>
+</body>
+</html>

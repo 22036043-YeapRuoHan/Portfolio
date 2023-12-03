@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/lib/bootstrap/umd/popper.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <title>StringExtMethods</title>
+</head>
+<body>
+    <div class="container m-3">
+
+        <h1>String Extension Methods</h1>
+        <form method="post">
+            <label for="line">Line : </label>
+            <input type="text" name="Line" id="line" />
+            <input type="submit" value="Stretch" formaction="/Demo/Stretch" />
+            <input type="submit" value="UpperLower" formaction="/Demo/UpperLower" />
+        </form>
+        @if (ViewData["Result"] != null)
+        {
+            <hr />
+            @ViewData["Result"]
+        }
+    </div>
+</body>
+</html>

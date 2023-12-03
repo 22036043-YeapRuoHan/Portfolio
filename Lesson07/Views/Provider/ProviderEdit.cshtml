@@ -1,0 +1,58 @@
+﻿@model Provider
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/bootstrap/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <title>ProviderEdit</title>
+</head>
+<body>
+    @await Html.PartialAsync("SocNavBar")
+
+    <div class="container">
+
+        <div class="my-3">
+            <h2>Edit Provider</h2>
+        </div>
+
+        <form method="post"
+              action="/Provider/ProviderEditPost">
+
+            <div class="col-md-6 mb-3 form-floating">
+                <input type="text" id="pid" name="provId" class="form-control"
+                       placeholder="Provider ID"
+                       value="@Model.ProviderId" readonly />
+                <label for="pid">Provider ID:</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <input type="text" id="pname" name="provName" class="form-control"
+                       placeholder="Provider Name"
+                       value="@Model.Name" required />
+                <label for="pname">Name:</label>
+            </div>
+
+            <input type="submit" class="mb-3 btn btn-primary" value="Save" />
+
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="alert alert-@ViewData["MsgType"]">
+                            <b>Message: </b>@ViewData["Message"]<br />
+                            @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                            {
+                                <b>SQL: </b> @ViewData["ExecSQL"]?.ToString()
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</body>
+</html>

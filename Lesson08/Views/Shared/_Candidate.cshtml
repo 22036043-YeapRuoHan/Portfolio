@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/bootstrap/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <title>Candidate</title>
+</head>
+<body>
+    <div class="container border-bottom">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" asp-controller="Candidate" asp-action="Index">
+                    <img src="~/images/applicant.svg" height="72" />
+                    Candidates
+                </a>
+
+                @*Button below (hamburger menu) appears when viewport too small.*@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-controller="Candidate"
+                           asp-action="Create">New Candidate</a>
+                    </li>
+                </ul>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container m-3">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+

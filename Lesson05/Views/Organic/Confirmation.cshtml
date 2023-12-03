@@ -1,0 +1,31 @@
+﻿@using Lesson05.Models
+@model Subscription
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <title>Confirmation</title>
+</head>
+<body>
+    @*TODO: Lesson05 Task 2a - Add the Navbar*@
+    @await Html.PartialAsync("OrgNavBar")
+    <div class="container">
+
+        <div class="my-3">
+            <h2>Thank you</h2>
+        </div>
+
+        <b>Name: </b>@Model.UserName<br />
+        <b>Name: </b>@Model.SubEmail<br />
+        <b>Gender: </b>@Model.Gender<br />
+        <b>Interest: </b>@Model.Interest<br />
+        <b>Referral: </b>@Model.Referral<br />
+        <b>Comments: </b>@Model.Comments<br />
+
+    </div>
+</body>
+</html>

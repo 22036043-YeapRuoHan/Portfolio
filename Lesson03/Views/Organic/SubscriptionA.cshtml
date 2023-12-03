@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>SubscriptionA</title>
+</head>
+<body>
+    <div class="container m-3">
+        <form method="post" action="~/Organic/Confirmation/SubscriptionA">
+
+            <div class="mb-3 row">
+                <div class="col-8 offset-3 text-primary">
+                    <h2>Newsletter Subscription</h2>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="name" class="col-3 form-label text-end">Name:</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="name" name="Name"
+                           placeholder="Your name">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="email" class="col-3 form-label text-end">Email:</label>
+                <div class="col-8">
+                    <input type="email" class="form-control" id="email" name="Email"
+                           placeholder="Your email">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="male" class="col-3 form-label text-end">Gender:</label>
+                <div class="col-8">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="male"
+                               name="Gender" value="Male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="female"
+                               name="Gender" value="Female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="" class="col-3 form-label text-end">Interests:</label>
+                <div class="col-8">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="recipe"
+                               name="Recipe" value="Recipe">
+                        <label class="form-check-label" for="recipe">Recipes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="news"
+                               name="News" value="News">
+                        <label class="form-check-label" for="news">News</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="offers"
+                               name="Offers" value="Offers">
+                        <label class="form-check-label" for="offers">Offers</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="" class="col-3 form-label text-end">
+                    How did you hear about us?
+                </label>
+                <div class="col-8">
+                    <select class="form-select" id="refer" name="Refer">
+                        <option value="" selected> -- Select One -- </option>
+                        <option value="Friend">Friend</option>
+                        <option value="Magazine">Magazine</option>
+                        <option value="Newspaper">Newspaper</option>
+                        <option value="Radio">Radio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="comments" class="col-3 form-label text-end">
+                    Additional comments:
+                </label>
+                <div class="col-8">
+                    <textarea class="form-control" id="comments" name="Comments"
+                              style="height: 100px"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-8 offset-3">
+                    <input type="submit" class="mb-3 btn btn-primary" value="Subscribe" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-8 offset-3">
+                    @if (ViewData["Message"] != null)
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            @ViewData["Message"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <a href="~/Organic/Index">Back to Main</a>
+
+        </form>
+    </div>
+</body>
+</html>

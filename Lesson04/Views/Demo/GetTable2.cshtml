@@ -1,0 +1,33 @@
+﻿@using System.Data
+@model DataTable
+
+<html>
+<head>
+    <title>GetTable2</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container m-3">
+        <h3 class=mb-3>Get Table (Model)</h3>
+        <table class='table table-bordered table-hover table-striped'>
+            <tr>
+                @for (int col = 0; col < Model.Columns.Count; col++)
+                {
+                    <th>@Model.Columns[col]</th>
+                }
+            </tr>
+
+            @for (int row = 0; row < Model.Rows.Count; row++)
+            {
+                <tr>
+                    @for (int col = 0; col < Model.Columns.Count; col++)
+                    {
+                        <td>@Model.Rows[row][col]</td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

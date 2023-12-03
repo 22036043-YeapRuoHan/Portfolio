@@ -1,0 +1,103 @@
+﻿@model Trip
+
+<div class="container">
+
+    <div class="my-3">
+        <h2>Add Trip Highlight</h2>
+    </div>
+
+    <form method="post"
+          asp-controller="Travel"
+          asp-action="Create"
+          enctype="multipart/form-data">
+
+        <div class="col-md-5 mb-3 form-floating">
+            <input asp-for="Title" class="form-control"
+                   placeholder="Title" />
+            <label asp-for="Title">Title</label>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="City" class="form-control"
+                   placeholder="City" />
+            <label asp-for="City">City</label>
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3 mb-3 form-floating">
+            <input asp-for="TripDate" class="form-control"
+                   placeholder="TripDate" />
+            <label asp-for="TripDate">Trip Date</label>
+            <span asp-validation-for="TripDate" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-3 form-floating">
+                <input asp-for="Duration" class="form-control"
+                       placeholder="Duration" />
+                <label asp-for="Duration" class="ps-4">Duration (days)</label>
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3 mb-3 form-floating">
+                <input asp-for="Spending" class="form-control"
+                       placeholder="Spending" />
+                <label asp-for="Spending" class="ps-4">Total Cost ($)</label>
+                <span asp-validation-for="Spending" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-8 mb-3 form-floating">
+            <textarea asp-for="Story" class="form-control" style="height: 100px"
+                      placeholder="Add comments here"></textarea>
+            <label asp-for="Story">Story</label>
+            <span asp-validation-for="Story" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label asp-for="Photo">Add an image</label>
+            <input asp-for="Photo" class="mb-3 form-control"
+                   onchange="preview()">
+            <span asp-validation-for="Photo" class="text-danger"></span>
+            <img class="d-none" style="max-height:250px;" id="frame" src="" />
+        </div>
+
+        <div class="form-group row">
+            <div class="mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="form-group row">
+                <div class="col-6">
+                    <div class="alert alert-@ViewData["MsgType"]">
+                        <b>Message: </b>@ViewData["Message"]<br />
+                        @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                        {
+                            <b>SQL: </b>
+
+                            @ViewData["ExecSQL"]?.ToString()
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </form>
+</div>
+
+<script>
+    function preview() {
+        document.getElementById("frame").className="d-md-block";
+        frame.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    function clearImage() {
+        document.getElementById('formFile').value = null;
+        frame.src = "";
+        document.getElementById("frame").className="d-none d-md-block";
+    }
+</script>

@@ -1,0 +1,111 @@
+﻿@model List<Movie>
+
+@section MoreScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        //TODO: Lesson13 Task 4 - Insert code/options for jQuery DataTables here
+        //Make sure you match the table name in the HTML below.
+        //Enable paging, ordering, searching and info.
+        //Page length is 5, 7 and All.
+    </script>
+}
+
+<div class="my-3">
+    <h2>Movies</h2>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $('#jsMovieTable').DataTable({
+            paging: true,
+            ordering: true,
+            searching: true,
+            info: true,
+            lengthMenu: [[5, 7, -1], [5, 7, "All"]],
+        });
+    });
+</script>
+
+<table id="jsMovieTable" class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Price</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Genre</th>
+            @*TODO: Lesson13 Task 5 - Insert a <th> for the manager role here to Edit|Delete a movie*@
+            @if (User.IsInRole("manager"))
+            {
+                <th scope="col">Operation</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Movie mv in Model)
+        {
+            <tr>
+                <td>@mv.MovieId</td>
+                <td>@mv.Title</td>
+                <td>
+                    <!-- TODO: Lesson 13 Task 2: - Write razor code to show 'Released' if the movie has been released -->
+                    @if (mv.ReleaseDate <= DateTime.Now)
+                    {
+                        <span>Released</span>
+                    }
+                    else
+                    {
+                        @String.Format("{0:MMM yyyy}", mv.ReleaseDate)
+                    }
+                </td>
+                <td>
+                    <!-- TODO: Lesson 13 Task 3: - Write razor highlight prices that are above $35 in red, and below $25 in green -->
+                    @if (mv.Price > 17)
+                    {
+                        <span style="color: red" >
+                            <b>@String.Format("{0:c}", mv.Price)</b>
+                        </span>
+                    }
+                    else if (mv.Price < 14)
+                    {
+                        <span style="color: green">
+                            <b>@String.Format("{0:c}", mv.Price)</b>
+                        </span>
+                    }
+                    else
+                    {
+                        <span style="color: blue">
+                            <b>@String.Format("{0:c}", mv.Price)</b>
+                        </span>
+
+                        
+                    }
+                </td>
+                <td>@mv.Duration</td>
+                <td>@mv.Rating</td>
+                <td>@mv.GenreName</td>
+
+                <!-- TODO: Lesson13 Task 5 - Insert a <td> for the manager role here to Edit|Delete a movie -->
+                @if (User.IsInRole("manager"))
+                {
+                    <td>
+                        <a href="@Url.Action("EditMovie", "Movie", new { id = mv.MovieId })">Edit</a> |
+                        <a href="@Url.Action("DeleteMovie", "Movie", new { id = mv.MovieId })" onclick="return confirm('Are you sure you want to delete movie @mv.Title?')">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<!--22036043 Yeap Ruo Han-->

@@ -1,0 +1,22 @@
+{
+    "version": "1.0",
+    "defaultProvider": "cdnjs",
+    "libraries": [
+        {
+            "destination": "wwwroot/lib/bootstrap/",
+            "library": "popper.js@2.11.7",
+            "files": [
+                "umd/popper.js"
+            ]
+        },
+        {
+            "destination": "wwwroot/lib/bootstrap/",
+            "files": [
+                "css/bootstrap.min.css",
+                "js/bootstrap.min.js"
+            ],
+            "library": "bootstrap@5.2.3"
+        }
+    ]
+}
+// Updated 5 April 2023

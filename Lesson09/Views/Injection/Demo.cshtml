@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<Fruit>
+
+<div class="container">
+
+    <div class="mt-3">
+        <h3>Injection Demonstration</h3>
+    </div>
+
+    @if (Model != null)
+    {
+        <table class='col-md-5 mb-3 table table-striped table-hover'>
+            <tr>
+                <th>Id</th>
+                <th>Fruit Name</th>
+            </tr>
+
+            @foreach (Fruit row in Model)
+            {
+                <tr>
+                    <td>@row.Id</td>
+                    <td>@row.Name</td>
+                </tr>
+            }
+        </table>
+    }
+
+    <form method="post">
+        <div class="col-md-4 mb-3 form-floating">
+            <input type="text" for="FruitName" class="form-control"
+                   placeholder="FruitName" name="FruitName" />
+            <label for="FruitName">Fruit Name</label>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-5">
+                <input type="submit" class="btn btn-danger" value="Unsafe"
+                       formaction="Insecure" formmethod="post" />
+                <input type="submit" class="btn btn-primary" value="Safe A"
+                       formaction="Secure" formmethod="post" />
+                <input type="submit" class="btn btn-info" value="Safe B"
+                       formaction="Secure2" formmethod="post" />
+            </div>
+        </div>
+
+        <br />
+        <p>
+            @ViewData["SQL"]
+        </p>
+
+    </form>
+
+</div>

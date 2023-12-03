@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <title>PubDelete</title>
+</head>
+<body>
+    @await Html.PartialAsync("BwNavBar")
+    <div class="container">
+
+        <div class="mt-3">
+            <h2>Delete publisher</h2>
+        </div>
+
+        <form method="post" action="~/BookWorm/PubDeletePost">
+
+            <div class="col-md-4 mb-3 form-floating">
+                <input type="number" class="form-control" id="pubid" name="Pubid"
+                       placeholder="pubid" />
+                <label for="pubid">Publisher ID:</label>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Delete publisher" class="btn btn-outline-danger" />
+
+            </div>
+
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="alert alert-@ViewData["MsgType"]">
+                            <b>Message: </b>@ViewData["Message"]<br />
+                            @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                            {
+                                <b>SQL: </b>@ViewData["ExecSQL"]?.ToString()
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+
+</body>
+</html>

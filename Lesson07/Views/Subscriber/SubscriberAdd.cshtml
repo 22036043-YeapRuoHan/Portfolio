@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/bootstrap/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <title>SubscriberAdd</title>
+</head>
+<body>
+    @await Html.PartialAsync("SocNavBar")
+
+
+    <div class="container">
+
+        <div class="my-3">
+            <h2>New Subscriber</h2>
+        </div>
+
+        <form method="post"
+              action="/Subscriber/SubscriberAddPost">
+
+            <div class="col-md-4 mb-3 form-floating">
+                <input type="text" id="username" name="username" class="form-control"
+                       placeholder="username" required />
+                <label for="username">Username :</label>
+            </div>
+
+            <div class="col-md-5 mb-3 form-floating">
+                <input type="text" id="firstname" name="firstname" class="form-control"
+                       placeholder="firstname" required />
+                <label for="firstname">First Name :</label>
+            </div>
+
+            <div class="col-md-5 mb-3 form-floating">
+                <input type="text" id="familyname" name="familyname" class="form-control"
+                       placeholder="familyname" required />
+                <label for="familyname">Family Name :</label>
+            </div>
+
+            <div class="col-md-3 mb-3 form-floating">
+                <input type="date" id="dob " name="dateofbirth" class="form-control"
+                       placeholder="YYYY-MM-DD" required />
+                <label for="dob">Date of Birth :</label>
+            </div>
+
+            <div class="mb-3 form-floating">
+                <div class="border-0 form-control h-auto">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="pubprof" name="publicprofile"
+                               value=1 />
+                        <label class="form-check-label" for="pubprof">Public Profile</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="autofriend" name="autofriends"
+                               value=1 />
+                        <label class="form-check-label" for="autofriend">Auto-accept Friends</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="bposts" name="broadcast"
+                               value=1 />
+                        <label class="form-check-label" for="bposts">Broadcast Posts</label>
+                    </div>
+                </div>
+                <label>Settings :</label>
+            </div>
+
+            <input type="submit" class="mb-3 btn btn-primary" value="Save" />
+
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="alert alert-@ViewData["MsgType"]">
+                            <b>Message: </b>@ViewData["Message"]<br />
+                            @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                            {
+                                <b>SQL: </b>
+
+                                @ViewData["ExecSQL"]?.ToString()
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </form>
+    </div>
+</body>
+</html>
+<!-- 22036043 Yeap Ruo Han -->

@@ -1,0 +1,75 @@
+﻿@model Performance;
+
+<div class="container">
+
+    <div class="my-3">
+        <h2>Create Performance</h2>
+    </div>
+
+    <form asp-controller="Performance" asp-action="Create" method="post">
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="Title" class="form-control"
+                   placeholder="Title" />
+            <label asp-for="Title">Title</label>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="Artist" class="form-control"
+                   placeholder="Artist" />
+            <label asp-for="Artist">Artist</label>
+            <span asp-validation-for="Artist" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="PerformDT" class="form-control"
+                   placeholder="PerformDT" />
+            <label asp-for="PerformDT">Performance date</label>
+            <span asp-validation-for="PerformDT" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="Duration" class="form-control"
+                   placeholder="Duration" />
+            <label asp-for="Duration">Duration</label>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="Price" class="form-control"
+                   placeholder="Price" />
+            <label asp-for="Price">Price ($)</label>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-3 form-floating">
+            <input asp-for="Chamber" class="form-control"
+                   placeholder="Chamber" />
+            <label asp-for="Chamber">Chamber</label>
+            <span asp-validation-for="Chamber" class="text-danger"></span>
+        </div>
+
+        <div class="col-auto mb-3">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="form-group row">
+                <div class="col-6">
+                    <div class="alert alert-@ViewData["MsgType"]">
+                        <b>Message: </b>@ViewData["Message"]<br />
+                        @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                        {
+                            <b>SQL: </b>
+
+                            @ViewData["ExecSQL"]?.ToString()
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </form>
+</div>
+<!--22036043 Yeap Ruo Han-->

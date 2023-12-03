@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Subscription</title>
+</head>
+<body>
+    <form method="post" style="margin-left: 50px;"
+          action="~/Organic/Confirmation/Subscription">
+        <h2>Newsletter Subscription</h2>
+        <div>
+            <label for="name">Name:</label>
+            <input style="margin-left: 50px;" type="text"
+                   id="name" name="Name" />
+        </div>
+        <br />
+
+        <div>
+            <label for="email">Email:</label>
+            <input style="margin-left: 50px;" type="text"
+                   id="email" name="Email" />
+        </div>
+        <br />
+
+        <div>
+            <label>Gender:</label>
+            <label for="male">
+                <input style="margin-left: 40px;" type="radio" id="male"
+                       name="Gender" value="Male" />Male
+            </label>
+            <label for="female">
+                <input type="radio" id="female"
+                       name="Gender" value="Female" />Female
+            </label>
+        </div>
+        <br />
+
+        <div>
+            <label>Interests:</label>
+            <label for="recipe">
+                <input style="margin-left: 33px;" type="checkbox" id="recipe"
+                       name="Recipe" value="Recipe" />Recipes
+            </label>
+            <label for="news">
+                <input type="checkbox" id="news" name="News" value="News" />News
+            </label>
+            <label for="offers">
+                <input style="margin-bottom: 10px;" type="checkbox" id="offers"
+                       name="Offers" value="Offers" />Offers
+            </label>
+        </div>
+        <br />
+
+        <div>
+            <label for="refer">Where did you hear about us?</label>
+            <select id="refer" name="Refer">
+                <option value="">-- Select One --</option>
+                <option value="Friend">Friend</option>
+                <option value="Magazine">Magazine</option>
+                <option value="Newspaper">Newspaper</option>
+                <option value="Radio">Radio</option>
+            </select>
+        </div>
+        <br />
+
+        <div style="margin-top: 10px;">
+            <label for="comments">Additional comments:</label>
+            <textarea id="comments" name="Comments" cols="35" rows="4"></textarea>
+        </div>
+        <br />
+
+        <div>
+            <input style="margin-top: 10px; margin-bottom: 10px;" type="submit"
+                   id="subscribe" value="Subscribe" />
+        </div>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div style="color:red;">
+                @ViewData["Message"]
+            </div>
+        }
+        <br />
+        <a href="~/Organic/Index">Back to Main</a>
+    </form>
+</body>
+</html>
+

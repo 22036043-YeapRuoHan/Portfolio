@@ -1,0 +1,118 @@
+﻿@{
+    Layout = "_Candidate";
+}
+
+@model Candidate
+<form asp-controller="Candidate"
+      asp-action="Create"
+      method="post" enctype="multipart/form-data">
+
+    <h3>New Candidate</h3>
+
+    <div class="col-md-3 mb-3 form-floating">
+        <input type="number" class="form-control" asp-for="RegNo"
+               placeholder="RegNo" />
+        <label asp-for="RegNo">Reg#</label>
+    </div>
+
+    <div class="col-md-6 mb-3 form-floating">
+        <input type="text" class="form-control" asp-for="CName"
+               placeholder="Cname"  />
+        <label for="CName">Name</label>
+    </div>
+
+    <div class="col-md-6 mb-3 form-floating">
+        <input type="number" class="form-control" asp-for="Height"
+               placeholder="Height" />
+        <label for="Height">Height (cm)</label>
+    </div>
+
+    <div class="col-md-6 mb-3 form-floating">
+        <input type="date" class="form-control" asp-for="BirthDate"
+               placeholder="BrithDate"  />
+        <label for="BrithDate">Birth date</label>
+    </div>
+
+    <div class="mb-3 form-floating">
+        <div class="form-control border-0 h-auto">
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" asp-for="Gender" value="F" />
+                <label class="form-check-label" asp-for="Gender">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" asp-for="Gender" value="M"
+                       checked />
+                <label class="form-check-label" asp-for="Gender">Male</label>
+            </div>
+        </div>
+        <label>Gender</label>
+    </div>
+
+    <div class="col-md-6 mb-3 form-floating">
+        <select class="form-select" asp-for="Race">
+            Race">
+            <option value="CH">Chinese</option>
+            <option value="MA">Malay </option>
+            <option value="IN">Indian</option>
+            <option value="OT">Others</option>
+        </select>
+        <label asp-for="Race">Race</label>
+    </div>
+
+    <div class="mb-3 form-floating">
+        <div class="form-control border-0 h-auto">
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" asp-for="Clearance" />
+                <label class="form-check-label" for="pp">Clearance completed?</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 mb-3">
+        <label for="formfile">Add candidate photo</label>
+        <input type="file" class="form-control mb-3" asp-for="Photo"
+               onchange="preview()" >
+        <img id="frame" height="100" src="" />
+    </div>
+
+    <div class="form-group row">
+        <div class="mb-3">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="mb-3">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+    </div>
+
+    @if (ViewData["Message"] != null)
+    {
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="alert alert-@ViewData["MsgType"]">
+                    <b>Message: </b>@ViewData["Message"]<br />
+                    @if (!string.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                    {
+                        <b>SQL: </b>
+
+                        @ViewData["ExecSQL"]?.ToString()
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</form>
+
+<script>
+    function preview() {
+        frame.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    function clearImage() {
+        document.getElementById('formFile').value = null;
+        frame.src = "";
+    }
+</script>
+

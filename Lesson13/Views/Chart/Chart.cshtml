@@ -1,0 +1,64 @@
+﻿<canvas id="chart" width="600" height="400"></canvas>
+
+@section MoreScripts {
+
+    <script language="javascript">
+
+        if (Chart.plugins.getAll().some(plugin => plugin.id === 'labels')) {
+            console.log('The labels plugin is loaded');
+        } else {
+            console.log('The labels plugin is not loaded');
+        }
+
+        $(document).ready(function () {
+            new Chart(document.getElementById("chart"), {
+                type: '@ViewData["Chart"]',
+                data: {
+                    labels: @Json.Serialize(ViewData["Labels"]),
+                    datasets: [{
+                        label: '@ViewData["Legend"]',
+                        data: @Json.Serialize(ViewData["Data"]),
+                        backgroundColor: @Json.Serialize(ViewData["Colors"]),
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontSize: 16,
+                            fontColor: 'white'
+                        },
+                        display: @ViewData["ShowLegend"]
+                    },
+                    scales: {
+                        yAxes: '@ViewData["Chart"]' === 'doughnut' ? [] : [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        fontSize: 25,
+                        text: '@ViewData["Title"]',
+                        fontColor: 'gray'
+                    },
+                    plugins: {
+                        labels: {
+                            render: 'value',
+                            fontSize: 20,
+                            fontColor: @Json.Serialize(ViewData["LabelColor"]),
+                            fontStyle: 'bold',
+                            textMargin: -25
+                        }
+                    }
+                }
+            });
+        });
+
+
+    </script>
+}
+<!--22036043 Yeap Ruo Han-->

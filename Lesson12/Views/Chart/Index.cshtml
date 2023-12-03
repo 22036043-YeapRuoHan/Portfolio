@@ -1,0 +1,32 @@
+﻿<div class="m-3">
+    <h2>Cadet Performance</h2>
+</div>
+
+<canvas id="chart" width="600" height="400"></canvas>
+
+@section MoreScripts {
+
+    <script language="javascript">
+
+        $(document).ready(function () {
+            new Chart(document.getElementById("chart"), {
+                type: 'pie',
+                data: {
+                    labels: @Json.Serialize(ViewData["Labels"]),
+                    datasets: [{
+                        label: '@ViewData["Title"]',
+                        backgroundColor: ["#A5D0A8", "#8CADA7", "#110B11", "##B7990D", "##F2F4CB"],
+                        data: @Json.Serialize(ViewData["Data"])
+                       }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            });
+        });
+
+    </script>
+}

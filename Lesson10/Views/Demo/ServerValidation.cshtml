@@ -1,0 +1,64 @@
+@{
+    Layout = "_Layout";
+}
+
+@model VData;
+
+<div class="my-3">
+    <h2>Remote Server Validation</h2>
+</div>
+
+<form method="post"
+      asp-controller="Demo"
+      asp-action="Validate">
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="GoTime" class="form-control"
+               placeholder="GoTime" />
+        <label asp-for="GoTime">Go Time</label>
+        <span asp-validation-for="GoTime" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="Amount" class="form-control"
+               placeholder="Amount" />
+        <label asp-for="Amount">Withdrawal</label>
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="First" class="form-control"
+               placeholder="First" value=0 />
+        <label asp-for="First">First Number</label>
+        <span asp-validation-for="First" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="Second" class="form-control"
+               placeholder="Second" value=0 />
+        <label asp-for="Second">Second Number</label>
+        <span asp-validation-for="Second" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="Third" class="form-control"
+               placeholder="Third" value=0 />
+        <label asp-for="Third">Third Number</label>
+        <span asp-validation-for="Third" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="Begin" class="form-control"
+               placeholder="Begin" />
+        <label asp-for="Begin">Start Date</label>
+        <span asp-validation-for="Begin" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="End" class="form-control"
+               placeholder="End" />
+        <label asp-for="End">End Date</label>
+        <span asp-validation-for="End" class="text-danger"></span>
+    </div>
+
+</form>

@@ -1,0 +1,67 @@
+﻿@model Cadet;
+<form asp-controller="Demo"
+      asp-action="EditCadet"
+      method="post">
+
+    <div class="my-3">
+        <h2>Edit Cadet</h2>
+    </div>
+
+    <input asp-for="CNo" hidden />
+
+    <div class="col-md-5 mb-3 form-floating">
+        <input asp-for="CName" class="form-control" placeholder="CName" />
+        <label asp-for="CName">Cadet Name</label>
+        <span asp-validation-for="CName" class="text-danger"></span>
+    </div>
+
+    @{
+        List<SelectListItem> clist =
+        ViewData["ClassList"] as List<SelectListItem> ??
+        new List<SelectListItem>();
+    }
+
+    <div class="col-md-3 mb-3 form-floating">
+        <select class="form-select"
+                asp-for="ClassGrp" asp-items="clist">
+        </select>
+        <label asp-for="ClassGrp">Class Group</label>
+        <span asp-validation-for="ClassGrp"
+              class="text-danger"></span>
+    </div>
+    
+    <div class="col-md-3 mb-3 form-floating">
+        <input asp-for="Shooting" class="form-control" placeholder="Shooting" />
+        <label asp-for="Shooting">Shooting</label>
+        <span asp-validation-for="Shooting" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3 mb-3 form-floating">
+        <input asp-for="Fitness" class="form-control" placeholder="Fitness" />
+        <label asp-for="Fitness">Fitness</label>
+        <span asp-validation-for="Fitness" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3 mb-3 form-floating">
+        <input asp-for="Exam" class="form-control" placeholder="Exam" />
+        <label asp-for="Exam">Exam</label>
+        <span asp-validation-for="Exam" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-6">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </div>
+
+    @if (ViewData["Message"] != null)
+    {
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+                <div class="alert alert-@ViewData["MsgType"]">
+                    <text>@Html.Raw(ViewData["Message"])</text>
+                </div>
+            </div>
+        </div>
+    }
+</form>

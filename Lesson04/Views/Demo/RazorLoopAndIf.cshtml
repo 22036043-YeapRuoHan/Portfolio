@@ -1,0 +1,62 @@
+﻿@using Lesson04.Models
+@model List<Candidate>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>RazorLoopAndIf</title>
+</head>
+<body>
+    <div class="container m-3">
+        <h3 class=mb-3>Candidates (Symbol, highlight not cleared)</h3>
+        <table class='table table-bordered table-hover table-striped'>
+            <tr>
+                <th>#</th>
+                <th>RegNo</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Clearance</th>
+            </tr>
+
+            @{
+                var sno = 1;
+            }
+
+            @foreach (var c in Model)
+            {
+                var highlight = "";
+                @*
+            if (!c.Clearance)
+            {
+            highlight = "table-warning";
+            }*@
+                var clear = "";
+                if (!c.Clearance)
+                {
+                    clear = "Cleared";
+                }
+                @*//var image = c.Gender.Equals("M") ? "male.svg" : "female.svg";*@
+                var gender = c.Gender.Equals("M") ? "Man" : "Women";
+
+                if (c.RegNo % 2==1)
+                {
+                    highlight = "table-warning";
+                }
+                <tr class="@highlight">
+                    <td>@(sno++)</td>
+                    <td>@c.RegNo</td>
+                    <td>@c.Name</td>
+                    @*<td><img src="~/images/@image" width="25" /></td>*@
+                    <td>@gender</td>
+                    @*<td>@c.Clearance</td>*@
+                    <td>@clear</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+<!-- 22036043 Yeap Ruo Han -->

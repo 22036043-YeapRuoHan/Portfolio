@@ -1,0 +1,51 @@
+@model List<Poll>;
+
+<div class="container">
+
+    <h2>
+        New Survey
+    </h2>
+
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-@TempData["MsgType"]">
+            @TempData["Message"]
+        </div>
+    }
+
+    <a asp-controller="Opinion"
+       asp-action="Create"
+       class="my-3">
+        New Survey
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Choice A</th>
+                <th scope="col">Choice B</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Poll poll in Model)
+            {
+                <tr>
+                    <td>@poll.Question</td>
+                    <td>@poll.ChoiceA (<b>@poll.CountA</b>)</td>
+                    <td>@poll.ChoiceB (<b>@poll.CountB</b>)</td>
+                    <td>
+                        <a asp-controller="Opinion"
+                       asp-action="Survey"
+                       asp-route-id="@poll.PollGUID">Poll</a> |
+                        <a asp-controller="Opinion"
+                       asp-action="Delete"
+                       asp-route-id="@poll.PollGUID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+﻿<div class="container border-bottom">
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <img src="~/images/air-travel.svg" height="50">
+            <a class="navbar-brand mx-2" asp-controller="Travel" asp-action="Index">
+                WhereWeWere
+            </a>
+
+            @*Button below (hamburger menu) appears when viewport too small.*@
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex justify-content-end w-100">
+                    &nbsp;
+                    <ul class="nav navbar-nav">
+                        <li class="navbar-text">
+                            <a class="text-end bi-box-arrow-in-right text-decoration-none text-muted"
+                               asp-controller="Account" asp-action="Login" data-toggle="tooltip"
+                               title="Login">&nbsp;Login</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</div>

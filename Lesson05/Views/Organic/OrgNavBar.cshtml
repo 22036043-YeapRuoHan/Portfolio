@@ -1,0 +1,33 @@
+﻿<div class="container border-bottom">
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <img src="~/images/organic.svg" height="72">
+            <a class="navbar-brand" href="~/Organic">Organic Fruits</a>
+            @*Button below (hamburger menu) appears when viewport too small.*@
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="~/Organic/Subscription" class="nav-link">Subscribe</a></li>
+                    <li class="nav-item"><a href="~/Organic/SubscriptionList" class="nav-link">Subscriptions</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button"
+                           href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="~/Organic/Products">View All</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="#">Add Product (Lesson 06)</a></li>
+                            <li><a class="dropdown-item" href="#">Remove Product (Lesson 06)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

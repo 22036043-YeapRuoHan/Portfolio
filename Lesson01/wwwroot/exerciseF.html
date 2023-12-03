@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        div{margin:12px}
+        #feedback label {
+            color: blue;
+            float: left;
+            width: 100px;
+            text-align: right;
+            margin-right: 5px;
+        }
+
+        #name, #email, #department {
+            width: 150px;
+            background-color: yellow;
+        }
+
+        #comment {
+            background-color: pink;
+        }
+
+        #btn {
+            
+            margin-left: 105px;
+        }
+    </style>
+</head>
+<body>
+    <form id="feedback">
+        <div>
+            <label>Name: </label>
+            <input type="text" id="name" name="Name">
+        </div>
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="Email">
+        </div>
+        <div>
+            <label for=" department">Department:</label>
+            <select id="department" name="Department">
+                <option>- select -</option>
+            </select>
+        </div>
+        <div>
+            <label>Gender:</label>
+
+            <input type="radio" id="gender1" name="Gender"> Female
+            <input type="radio" id="gender2" name="Gender"> Male
+              
+        </div>
+        <div>
+            <label>Equipment:</label>
+
+            <input type="checkbox" id="Equip1" name="Proj"> Projector
+            <input type="checkbox" id="Equip2" name="Tv"> TV
+            <input type="checkbox" id="Equip3" name="Flip"> Flip Chart
+        </div>
+        <div>
+            <label>Comment:</label>
+            <textarea id="comment" name="comment" rows="5" cols="40"></textarea>
+        </div>
+        <div>
+            <input type="submit" id="btn" value="Submit"/>
+        </div>
+    </form>
+
+</body>
+</html>

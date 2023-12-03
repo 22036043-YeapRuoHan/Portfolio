@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Volunteer</title>
+</head>
+<body>
+    <form method="post" style="margin-left: 50px;"
+          action="~/Parent/Submit">
+        <div>
+            <h2>Be A Parent Volunteer Bootstrap</h2>
+        </div>
+        <br />
+
+        <div>
+            <label style="margin-bottom: 15px;">Title:</label>
+            <input type="radio" name="Title" id="dr" value="Dr" />
+            <label for="dr">Dr</label>
+            <input type="radio" name="Title" id="mr" value="Mr" />
+            <label for="mr">Mr</label>
+            <input type="radio" name="Title" id="ms" value="Ms" />
+            <label for="md">Ms</label>
+        </div>
+        <br />
+
+        <div>
+            <label for="Name" style="margin-bottom: 15px;">Name:</label>
+            <input type="text" name="Name" id="Name" />
+        </div>
+        <br />
+
+        <div>
+            <label for="Postal" style="margin-bottom: 15px;">Postal Code:</label>
+            <input type="text" name="Postal" id="Postal" />
+        </div>
+        <br />
+
+        <div>
+            <label for="Mobile" style="margin-bottom: 15px;">Mobile:</label>
+            <input type="text" name="Mobile" id="Mobile" />
+        </div>
+        <br />
+
+        <div>
+            <label for="Activity" style="margin-bottom: 15px;">Activity:</label>
+            <select name="Activity" id="Activity">
+                <option value="">-- SELECT --</option>
+                <option value="Story Telling">Story Telling</option>
+                <option value="Traffic Control">Traffic Control</option>
+                <option value="Music Appreciation">Music Appreciation</option>
+                <option value="Art and Craft">Art and Craft</option>
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label style="margin-bottom: 15px;">Days:</label>
+            <input type="checkbox" name="Mon" id="Mon" value="Mon" />
+            <label for="Mon">Monday</label>
+            <input type="checkbox" name="Wed" id="Wed" value="Wed" />
+            <label for="Wed">Wednesday</label>
+            <input type="checkbox" name="Fri" id="Fri" value="Fri" />
+            <label for="Fri">Friday</label>
+        </div>
+        <br />
+
+        <div style="margin-bottom: 15px;">
+            <input type="submit" value="Submit" />
+            <br />
+        </div>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div style="color:red;">
+                @ViewData["Message"]
+            </div>
+        }
+    </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>ApplicationBS</title>
+</head>
+<body>
+    <div class="container m-3">
+        <form method="post" action="/Consultation/Confirm/BS">
+
+            <div class="mb-3 text-primary">
+                <h2>Be a Consultant</h2>
+            </div>
+            <div class="mb-3 col-9 form-floating">
+                <input type="text" class="form-control" id="staffname" name="StaffName" placeholder="Staff name" />
+                <label for="name">Staff Name</label>
+            </div>
+
+            <div class="mb-3 col-9 form-floating">
+                <input type="email" class="form-control" id="email" name="Email" placeholder="Your email" />
+                <label for="email">Email</label>
+            </div>
+
+            <div class="mb-3 col-5 form-floating">
+                <select class="form-select" id="acadposition" name="AcadPosition">
+                    <option value="">-- Select One --</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Lecturer">Lecturer</option>
+                    <option value="Adjunct">Adjunct</option>
+                </select>
+                <label for="email">Position</label>
+            </div>
+
+            <div class="mb-3 col-5 form-floating">
+                <input type="date" class="form-control" id="startdate" name="StartDate"
+                       placeholder="DD/MM/YYYY" />
+                <label for="email">Start Date</label>
+            </div>
+
+            <div class="mb-3 col-5 form-floating">
+                <input type="date" class="form-control" id="enddate" name="EndDate" placeholder="DD/MM/YYYY" />
+                <label for="email">End Date</label>
+            </div>
+
+            <div class="mb-3 col-9 form-floating">
+                <div class="form-control">
+                    <input type="checkbox" class="form-check-input"
+                           id="terms" name="Agree" value="Agree" />
+                    <label class="form-check-label" for="terms">
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+                <label for="terms">Acceptance</label>
+            </div>
+
+            <input type="submit" class="mb-3 btn btn-primary" value="Submit" />
+
+            <div class="mb-3">
+                <div class=" col-4 offset-2">
+                    @if (ViewData["Message"] != null)
+                    {
+
+                        <div class="alert alert-warning" >
+                        @ViewData["Message"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

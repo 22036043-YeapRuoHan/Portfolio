@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            margin: 20px
+        }
+
+        #subscription label {
+            color: blue;
+            float: left;
+            width: 200px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        #name, #email, #hear {
+            width: 150px;
+            background-color: yellow;
+        }
+
+        #comment {
+            background-color: pink;
+        }
+
+        #btn {
+            margin-left: 210px;
+        }
+
+        h3 {
+            margin-left: 230px;
+        }
+    </style>
+</head>
+<body>
+    <form id="subscription">
+        <h3><span style="color:blue;">Newsletter Subscription</span></h3>
+        <div>
+            <label>Your name: </label>
+            <input type="text" id="name" name=" Your name">
+        </div>
+        <div>
+            <label for="email">Your email address:</label>
+            <input type="text" id="email" name="Your email address">
+        </div>
+
+        <div>
+            <label>Your gender:</label>
+
+            <input type="radio" id="gender1" name="Gender"> Female
+            <input type="radio" id="gender2" name="Gender"> Male
+
+        </div>
+
+        <div>
+            <label>Your interest:</label>
+
+            <input type="checkbox" id="Interest1" name="Recipes"> Recipes
+            <input type="checkbox" id="Interest2" name="News"> News
+            <input type="checkbox" id="Interest3" name="Offers"> Offers
+        </div>
+        <div>
+            <label for="hear">Where did you hear about us ?</label>
+            <select id="hear" name="hear">
+                <option>select One</option>
+                <option>Friend</option>
+                <option>Magazine</option>
+                <option>Newspaper</option>
+                <option>Radio</option>
+            </select>
+        </div>
+        <div>
+            <label>Any additional comments ?</label>
+            <textarea id="comment" name="comment" rows="5" cols="40"></textarea>
+        </div>
+        <div>
+            <input type="submit" id="btn" value="Subscribe" />
+        </div>
+    </form>
+    <a href="Main.html">Back to main page</a>
+</body>
+</html>
+<!-- 22036043 Yeap Ruo Han -->

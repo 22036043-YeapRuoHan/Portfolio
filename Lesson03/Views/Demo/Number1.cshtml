@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/lib/bootstrap/umd/popper.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <title>Number1</title>
+</head>
+<body>
+    <script src="https://web.archive.org/web/20201124004717js_/https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <div class="container m-3">
+        <h3>
+            Code call from previous view
+        </h3>
+        <pre class="prettyprint col-9">&nbsp;
+    &lta href="Demo/Number/1"&gtSee View Number1&lt/a&gt
+        </pre>
+        <h3>Controller code called</h3>
+        <pre class="prettyprint col-9">&nbsp;
+    public IActionResult Number(int id)
+    {
+        return View("Number" + id);
+    }
+        </pre>
+        <p>
+            <b>Controller:</b> Demo<br />
+            <b>Action:</b> Number<br />
+            <b>Id:</b> 1<br />
+        </p>
+        <h3>Result</h3>
+        <p>
+            <b>View Called: </b>Number1.cshtml<br />
+        </p>
+    </div>
+</body>
+</html>
+

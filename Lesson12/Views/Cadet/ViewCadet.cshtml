@@ -1,0 +1,54 @@
+﻿@model Cadet;
+
+<div class="container">
+
+    <div class="my-3">
+        <h2>Cadet Performance</h2>
+    </div>
+
+    <canvas id="pieChart" width="600" height="450"></canvas>
+
+</div>
+
+@section MoreScripts {
+    <script language="javascript">
+        $(document).ready(
+            function () {
+                var mychart = new Chart(document.getElementById("pieChart"), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Shooting', 'Fitness', 'Exam'],
+                        datasets: [{
+                            label: 'Scores',
+                            backgroundColor: ["#454B66", "#677DB7", "#9CA3DB"],
+                            data: [@Model.Shooting, @Model.Fitness, @Model.Exam]
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        title: {
+                            display: true,
+                            text: '@Model.CNo - @Model.CName',
+                            fontSize: 30
+                        },
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                fontSize: 30
+                            }
+                        },
+                        plugins: {
+                            labels: {
+                                render: 'value',
+                                fontColor: '#FFFFFF',
+                                fontSize: 30,
+                                fontStyle: 'bold'
+                            }
+                        }
+                    }
+                });
+
+            }
+        );
+    </script>
+}

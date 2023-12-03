@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section MoreScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#JSWarehouses').DataTable();
+            paging: true,
+                ordering: false,
+                    pageLength: 2,
+                    searching: true,
+                        info: false,
+                          
+
+        });
+        });
+    </script>
+
+}
+
+@model List<Warehouse>
+
+@if (TempData["Message"] != null)
+{
+    <br />
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<br />
+<h1>Warehouses</h1>
+<br />
+<hl></hl>
+
+<table id="JSWarehouses" class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Alias</th>
+            <th>Phone</th>
+            <th>AddressLine1</th>
+            <th>AddressLine2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postcode</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Warehouse location in Model)
+        {
+            <tr>
+                <td>@location.Id</td>
+                <td>@location.Alias</td>
+                <td>@location.Phone</td>
+                <td>@location.AddressLine1</td>
+                <td>@location.AddressLine2</td>
+                <td>@location.City</td>
+                <td>@location.State</td>
+                <td>@location.Postcode</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

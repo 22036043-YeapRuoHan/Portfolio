@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 610 610" version="1.1">
+  <g id="layer1">
+    <rect id="rect5840" stroke-linejoin="round" ry="1.5381" height="600" width="600" stroke="#4a0" y="5" x="5" stroke-width="10" fill="none"/>
+    <path id="path2985" d="m493.13 374.63c-15.256 69.159-51.736 130.41-131.8 154.57-19.632 5.9223-43.087-9.8257-69.102-10.228-27.43-0.42568-50.406 13.98-70.781 6.3571-71.93-26.91-95.5-81.69-112.29-150.41-12.973-53.09-11.839-115.1 25.29-142.09 63.012-45.799 113.31-7.7609 160.13-8.0754 68.547-0.46057 92.655-55.056 169.44 12.932 42.752 37.855 40.307 86.195 29.112 136.94z" fill="#94c207"/>
+    <path id="path3804" d="m256.03 149.71s10.452 56.135 27.182 80.047c6.1398 1.6523 11.892 4.3521 16.792 0-16.183-28.436-20.317-83.052-20.317-83.052z" fill="#204c04"/>
+    <path id="path3806" fill="#204c04" d="m439.41 120.9c-69.044 0.33721-148.46 20.378-129.76 105.23 125.83 86.394 221.73-92.65 222.18-92.709-2.777-3.757-45.172-12.755-92.413-12.524z"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>eco green apple, icon</dc:title>
+        <dc:date>2013-09-23T19:20:53</dc:date>
+        <dc:description/>
+        <dc:source>http://openclipart.org/detail/183645/eco-green-apple-icon-by-dominiquechappard-183645</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dominiquechappard</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>apple</rdf:li>
+            <rdf:li>ecology</rdf:li>
+            <rdf:li>food</rdf:li>
+            <rdf:li>fruit</rdf:li>
+            <rdf:li>green</rdf:li>
+            <rdf:li>icon</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

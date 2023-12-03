@@ -1,0 +1,77 @@
+@model Poll;
+
+<div class="container m-3">
+
+    <h2>
+        @Model.Question
+    </h2>
+
+    <canvas id="chart" width="600" height="450"></canvas>
+</div>
+
+@{
+    // TODO: Lesson12 Task 4 - Fill in the blanks using 
+    // @Model.ChoiceA etc.
+}
+
+@section MoreScripts {
+
+    <script language="javascript">
+        $(document).ready(
+            function () {
+                var mychart = new Chart(document.getElementById("chart"), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['@Model.ChoiceA', '@Model.ChoiceB'],
+                        datasets: [{
+                            label: 'Votes',
+                            backgroundColor: ["#689689", "#B2E6D4"],
+                            data: [@Model.CountA, @Model.CountB]
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        title: {
+                            display: true,
+                            text: 'Survey Results',
+                            fontSize: 30
+                        },
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                fontSize: 30
+                            }
+                        },
+                        plugins: {
+                            labels: {
+                                render: 'value',
+                                fontColor: '#000',
+                                fontSize: 30,
+                                fontStyle: 'bold'
+                            }
+                        }
+                    }
+                });
+
+                // This code polls the DB. It is not required for local deployment.
+                
+                $.ajaxSetup({ cache: false });
+                setInterval(
+                    function () {
+                        $.getJSON(
+                            "/Opinion/GetOutcome/@Model.PollGUID",
+                            function (data) {
+                                mychart.data.datasets[0].data = data;
+                                mychart.update();
+                            }
+                        );
+                    },
+                    2000
+                );
+
+
+            }
+        );
+    </script>
+}
+<!--22036043 Yeap Ruo Han-->

@@ -1,0 +1,86 @@
+﻿@model Movie;
+
+<div class="container">
+
+    <!-- TODO: Lesson13 Task 7 - Bind form controls to the Movie model using tag helpers. -->
+
+    <div class="my-3">
+        <h2>Edit Movie</h2>
+    </div>
+
+    <form asp-controller="Movie"
+          asp-action="EditMovie"
+          method="post">
+
+        <input asp-for="MovieId" hidden />
+
+        <div class="col-6 mb-3 form-floating">
+            <input class="form-control" asp-for="Title"
+                   placeholder="Title" />
+            <label class="control-label col-md-4" asp-for="Title">Title</label>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-4 mb-3 form-floating form-group-row">
+            <input class="form-control" type="date" asp-for="ReleaseDate" asp-format="{0:yyyy-MM-dd}"
+                   placeholder="ReleaseDate" />
+            <label class="control-label col-md-4" asp-for="ReleaseDate">Release Date</label>
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-3 mb-3 form-floating">
+            <input class="form-control" asp-for="Price"
+                   placeholder="Price" />
+            <label class="control-label col-md-4" asp-for="Price">Price ($)</label>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="col-3 mb-3 form-floating">
+            <input class="form-control" asp-for="Duration"
+                   placeholder="Duration" />
+            <label class="control-label col-md-5" asp-for="Duration">Duration (min)</label>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        <div class="col-3 mb-3 form-floating">
+            <input class="form-control" asp-for="Rating"
+                   placeholder="Rating" />
+            <label class="control-label col-md-4" asp-for="Rating">Rating</label>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+
+        <div class="col-3 mb-3 form-floating">
+            <select class="form-select" asp-for="GenreId">
+                @foreach (var item in (SelectList)ViewData["Genres"]!)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+            <label class="control-label col-md-4" asp-for="GenreId">Genre</label>
+            <span labelclass="text-danger"></span>
+        </div>
+
+        <div class="col-auto mb-3">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="form-group row">
+                <div class="col-6">
+                    <div class="alert alert-@ViewData["MsgType"]">
+                        <b>Message: </b>@ViewData["Message"]<br />
+                        @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                        {
+                            <b>SQL: </b>
+
+                            @ViewData["ExecSQL"]?.ToString()
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </form>
+</div>
+<!--22036043 Yeap Ruo Han-->

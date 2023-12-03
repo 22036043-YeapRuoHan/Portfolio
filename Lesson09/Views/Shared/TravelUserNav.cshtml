@@ -1,0 +1,46 @@
+﻿<div class="container border-bottom">
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+
+            <img src="~/images/air-travel.svg" height=50 />
+            <a class="navbar-brand" asp-controller="Travel" asp-action="Index">
+                <span class="navbar-brand ms-2">WhereWeWere</span>
+            </a>
+
+            @*Button below (hamburger menu) appears when viewport too small.*@
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @*<div class="collapse navbar-collapse" id="navbarSupportedContent">*@
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex justify-content-between w-100">
+                    <div>
+                        <ul class="navbar navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Travel" asp-action="MyTrips">My Trips</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" asp-controller="Travel" asp-action="Create">New Trip</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="navbar navbar-nav">
+                            <li span class="nav-item">
+                                <div class="nav-link">
+                                    Welcome @User.Identity!.Name
+                                    <a class="bi-box-arrow-right text-decoration-none text-muted" asp-controller="Account"
+                                       asp-action="Logoff" data-toggle="tooltip" title="Log out"></a>
+                                    @*<a class="nav-link" href="#">New Trip</a>*@
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>

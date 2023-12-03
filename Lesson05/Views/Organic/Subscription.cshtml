@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <title>Subscription</title>
+</head>
+<body>
+    @*TODO: Lesson05 Task 2d - Add the Navbar*@
+    @await Html.PartialAsync("OrgNavBar")
+    <div class="container">
+
+        <div class="mt-3">
+            <h2>Subscribe</h2>
+        </div>
+
+        <form method="post" action="~/Organic/Confirmation/Subscription">
+
+            <div class="col-md-6 mb-3 form-floating">
+                <input type="text" class="form-control" id="name" name="Name"
+                       placeholder="Your name" />
+                <label for="name">Name</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <input type="email" class="form-control" id="email" name="Email"
+                       placeholder="Yoasur email" />
+                <label for="email">Email</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <div class="form-control border-0 ">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input"
+                               id="male" name="Gender" value="Male" />
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input"
+                               id="female" name="Gender" value="Female" />
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                </div>
+                <label>Gender</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <div class="form-control border-0 ">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="recipe" name="Recipe" value="Recipe" />
+                        <label class="form-check-label" for="recipe">Recipes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="news" name="News" value="News" />
+                        <label class="form-check-label" for="news">News</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="offers" name="Offers" value="Offers" />
+                        <label class="form-check-label" for="offers">Offers</label>
+                    </div>
+                </div>
+                <label>Interests</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <select class="form-select" id="refer" name="Refer">
+                    <option value="">-- Select One --</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Magazine">Magazine</option>
+                    <option value="Newspaper">Newspaper</option>
+                    <option value="Radio">Radio</option>
+                </select>
+                <label for="email">How did you hear about us?</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <textarea class="form-control" id="comments" name="Comments"
+                          style="height: 100px" placeholder="Add comments here"></textarea>
+                <label for="comments">Additional comments</label>
+            </div>
+
+            <input type="submit" class="mb-3 btn btn-primary" value="Subscribe" />
+
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="alert alert-@ViewData["MsgType"]">
+                            <b>Message: </b>@ViewData["Message"]<br />
+                            @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                            {
+                                <b>SQL: </b>@ViewData["ExecSQL"]?.ToString()
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <a class="row mx-0" href="~/Organic/Index">Back to Main</a>
+
+        </form>
+    </div>
+</body>
+</html>
